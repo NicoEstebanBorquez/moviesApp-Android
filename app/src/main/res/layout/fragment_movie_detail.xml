@@ -22,7 +22,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/degradado" />
+            android:background="@drawable/degradado"
+            android:scaleType="centerCrop"
+            />
     </FrameLayout>
 
     <androidx.cardview.widget.CardView

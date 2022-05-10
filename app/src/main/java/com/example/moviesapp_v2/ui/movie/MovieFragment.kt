@@ -11,8 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.example.moviesapp_v2.R
 import com.example.moviesapp_v2.core.Resource
+import com.example.moviesapp_v2.data.local.AppDatabase
+import com.example.moviesapp_v2.data.local.localMovieDataSource
 import com.example.moviesapp_v2.data.model.Movie
-import com.example.moviesapp_v2.data.remote.MovieDataSource
+import com.example.moviesapp_v2.data.remote.remoteMovieDataSource
 import com.example.moviesapp_v2.databinding.FragmentMovieBinding
 import com.example.moviesapp_v2.presentation.MovieViewModel
 import com.example.moviesapp_v2.presentation.MovieViewModelFactory
@@ -29,7 +31,8 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(
             MovieRepositoryImpl(
-                MovieDataSource(RetrofitClient.webservice)
+                remoteMovieDataSource(RetrofitClient.webservice),
+                localMovieDataSource(AppDatabase.getDatabase(requireContext()).movieDao())
             )
         )
     }
@@ -49,6 +52,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                     binding.barraProgreso.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
+                    Log.d("LiveDataAll", "Obteniendo data")
                     binding.barraProgreso.visibility = View.GONE
                     concatAdapter.apply {
                         addAdapter(
@@ -83,7 +87,6 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                 }
                 is Resource.Failure -> {
                     binding.barraProgreso.visibility = View.GONE
-
                     Log.d("LiveDataAll", "${result.exception}")
                 }
             }
