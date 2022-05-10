@@ -1,8 +1,10 @@
 package com.example.moviesapp_v2.ui.moviedetails
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.moviesapp_v2.R
@@ -25,5 +27,17 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
         binding.txtLanguage.text = "Language ${args.language}"
         //binding.txtRating.text = "${args.voteAverage} (${args.voteCount} Reviews)"
         binding.txtReleased.text = "Released ${args.releaseDate}"
+
+        addToFavorites();
+
     }
+
+    private fun addToFavorites() {
+        binding.btnAddFavorites.setOnClickListener {
+            Toast.makeText(requireContext(), "FAVORITES!",  Toast.LENGTH_SHORT).show()
+            Log.d("Titulo", "${args.title}")
+            Log.d("Resumen", "${args.overview}")
+        }
+    }
+
 }

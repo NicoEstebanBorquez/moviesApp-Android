@@ -61,7 +61,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                             )
                         )
                         addAdapter(
-                            0,
+                            1,
                             PopularConcatAdapter(
                                 MovieAdapter(
                                     result.data.second.results,
@@ -70,7 +70,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                             )
                         )
                         addAdapter(
-                            0,
+                            2,
                             TopRatedConcatAdapter(
                                 MovieAdapter(
                                     result.data.third.results,

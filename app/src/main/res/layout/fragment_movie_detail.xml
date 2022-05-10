@@ -65,10 +65,10 @@
         android:id="@+id/txt_movie_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-black"
         android:gravity="left"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,10 +94,10 @@
         android:id="@+id/txt_released"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
         android:drawablePadding="8dp"
         android:gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="16dp"
         app:drawableStartCompat="@drawable/ic_baseline_calendar_today_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_movie_title"
@@ -107,8 +107,8 @@
         android:id="@+id/txt_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawablePadding="8dp"
         android:layout_marginTop="5dp"
+        android:drawablePadding="8dp"
         android:gravity="center"
         app:drawableStartCompat="@drawable/ic_baseline_language_24"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,99 +116,24 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_movie_title"
         tools:text="Language EN" />
 
-    <!--<LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_bookmark_border_24" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bookmark" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_favorite_border_24" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Favorite" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_share_24" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Share" />
-    </LinearLayout>-->
-
-
-    <!--<TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Overview"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />-->
-
     <TextView
         android:id="@+id/txt_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="190dp"
         android:minHeight="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/guideline1"
         tools:text="Prince Amleth is on the verge of becoming a man when his father is brutally murdered by his uncle, who kidnaps the boy's mother. Two decades later, Amleth is now a Viking who's on a mission to save his mother, kill his uncle and avenge his father." />
 
+    <Button
+        android:id="@+id/btn_add_favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add to Favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
