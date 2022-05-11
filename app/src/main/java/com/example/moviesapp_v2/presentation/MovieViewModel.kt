@@ -21,7 +21,7 @@ class MovieViewModel(private val repo: MovieRepository) : ViewModel() {
 
         try {
             emit(
-                Resource.Success(Triple(repo.getUpcomingMovies(), repo.getTopRatedMovies(), repo.getPopularMovies())))
+                Resource.Success(Triple(repo.getUpcomingMovies(), repo.getPopularMovies(), repo.getTopRatedMovies())))
         } catch (e: Exception) {
             emit(Resource.Failure(e))
         }

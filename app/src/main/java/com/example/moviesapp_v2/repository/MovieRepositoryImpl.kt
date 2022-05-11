@@ -8,6 +8,8 @@ import com.example.moviesapp_v2.data.remote.remoteMovieDataSource
 
 // INTERFACE IMPLEMENTATION
 
+
+
 class MovieRepositoryImpl(
     private val dataSourceRemote: remoteMovieDataSource,
     private val dataSourceLocal: localMovieDataSource
@@ -24,17 +26,6 @@ class MovieRepositoryImpl(
         }
     }
 
-    override suspend fun getTopRatedMovies(): MovieList {
-        return if (InternetCheck.isNetworkAvailable()) {
-            dataSourceRemote.getTopRatedMovies().results.forEach { movie ->
-                dataSourceLocal.saveMovie(movie.toMovieEntity("toprated"))
-            }
-            dataSourceLocal.getTopRatedMovies()
-        } else {
-            dataSourceLocal.getUpcomingMovies()
-        }
-    }
-
     override suspend fun getPopularMovies(): MovieList {
         return if (InternetCheck.isNetworkAvailable()) {
             dataSourceRemote.getPopularMovies().results.forEach { movie ->
@@ -42,7 +33,18 @@ class MovieRepositoryImpl(
             }
             dataSourceLocal.getPopularMovies()
         } else {
-            dataSourceLocal.getUpcomingMovies()
+            dataSourceLocal.getPopularMovies()
+        }
+    }
+
+    override suspend fun getTopRatedMovies(): MovieList {
+        return if (InternetCheck.isNetworkAvailable()) {
+            dataSourceRemote.getTopRatedMovies().results.forEach { movie ->
+                dataSourceLocal.saveMovie(movie.toMovieEntity("toprated"))
+            }
+            dataSourceLocal.getTopRatedMovies()
+        } else {
+            dataSourceLocal.getTopRatedMovies()
         }
     }
 }

@@ -10,11 +10,11 @@ class remoteMovieDataSource(private val webService: WebService) {
         return webService.getUpcomingMovies(AppConstants.API_KEY)
     }
 
-    suspend fun getTopRatedMovies(): MovieList {
-        return webService.getTopRatedMovies(AppConstants.API_KEY)
-    }
-
     suspend fun getPopularMovies(): MovieList {
         return webService.getPopularMovies(AppConstants.API_KEY)
+    }
+
+    suspend fun getTopRatedMovies(): MovieList {
+        return webService.getTopRatedMovies(AppConstants.API_KEY)
     }
 }

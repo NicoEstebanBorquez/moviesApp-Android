@@ -16,11 +16,11 @@ interface WebService {
     suspend fun getUpcomingMovies(@Query("api_key") apiKey: String): MovieList
     //https://api.themoviedb.org/3/movie/upcoming?api_key=572f6e73385919e6eb3a365a3e144cce
 
-    @GET("movie/top_rated")
-    suspend fun getTopRatedMovies(@Query("api_key") apiKey: String): MovieList
-
     @GET("movie/popular")
     suspend fun getPopularMovies(@Query("api_key") apiKey: String): MovieList
+
+    @GET("movie/top_rated")
+    suspend fun getTopRatedMovies(@Query("api_key") apiKey: String): MovieList
 }
 
 object RetrofitClient {
